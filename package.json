@@ -1,0 +1,36 @@
+{
+  "name": "node-api-typescript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Igor Xavier",
+  "license": "MIT",
+  "scripts": {
+    "start": "tsx src/server.ts",
+    "start:dev": "tsx watch src/server.ts",
+    "test": "vitest",
+    "build": "tsup ./src"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/jest": "^29.1.2",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/node": "^18.13.0",
+    "@types/supertest": "^2.0.12",
+    "prisma": "^4.4.0",
+    "tsup": "^6.6.3",
+    "tsx": "^3.12.3",
+    "typescript": "^4.9.5",
+    "vitest": "^0.28.5"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.4.0",
+    "@types/cors": "^2.8.13",
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jest": "^29.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "supertest": "^6.1.6"
+  }
+}
