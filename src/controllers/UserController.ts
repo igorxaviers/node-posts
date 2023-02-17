@@ -1,21 +1,34 @@
 import { User } from "../models/User";
 import db from "../db/dbClient";
 import { Request, Response } from "express";
+import bcrypt from "bcrypt";
 
 class UserController {
 
 
     findAll = async (req: Request, res: Response) => {
-        const users: User[] = await db.user.findMany();
-        res.json(users);
+        try{
+            const users: User[] = await db.user.findMany();
+            res.json(users);
+        }
+        catch(err){
+            res.status(500).json({ message: "Something went wrong" });
+        }
     }
 
     create = async (req: Request, res: Response) => {
         const user: User = req.body;
-        const newUser: User = await db.user.create({
-            data: user
-        });
-        res.json(newUser);
+        try{
+            user.password = await bcrypt.hash(user.password, 10);
+            const newUser: User = await db.user.create({
+                data: user
+            });
+            user.password = "";
+            res.json(newUser);
+        }
+        catch(err){
+            res.status(500).json({ message: "Something went wrong" });
+        }
     }
 
     update = async (req: Request, res: Response) => {
@@ -37,13 +50,24 @@ class UserController {
 
     authenticate = async (req: Request, res: Response) => {
         const user: User = req.body;
-        const authenticatedUser: User = await db.user.findUnique({
-            where: { email: user.email }
-        });
-        if (authenticatedUser) {
-            res.json(authenticatedUser);
-        } else {
-            res.status(401).json({ message: "Invalid credentials" });
+        try{
+            const authenticatedUser: User | null = await db.user.findUnique({
+                where: { email: user.email }
+            });
+            if (authenticatedUser) {
+                //move this to a service
+                const match = await bcrypt.compare(user.password, authenticatedUser.password);
+                if (match) {
+                    res.json(authenticatedUser);
+                } else {
+                    res.status(401).json({ message: "Invalid credentials" });
+                }
+            } else {
+                res.status(401).json({ message: "Invalid credentials" });
+            }
+        }
+        catch(err){
+            res.status(500).json({ message: "Something went wrong" });
         }
     }
 

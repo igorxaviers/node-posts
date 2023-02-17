@@ -12,7 +12,27 @@ datasource db {
 
 
 model User {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  name    String?
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String 
+  name      String?
+  photo     String?
+  // posts     Post[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
+
+// encrypt password before saving to db
+// https://www.prisma.io/docs/concepts/components/prisma-client/crud#encrypting-fields
+
+
+// model Post {
+//   id        Int      @id @default(autoincrement())
+//   title     String
+//   content   String?
+//   published Boolean  @default(false)
+//   author    User     @relation(fields: [authorId], references: [id])
+//   authorId  Int
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+// }
