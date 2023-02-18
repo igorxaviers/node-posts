@@ -1,9 +1,16 @@
-export interface User {
-    id: number;
+import { UserSchema } from "../schema/user.schema";
+import { z } from "zod";
+// export type User = z.infer<typeof UserSchema>;
+
+export interface User{
+    id?: number;
     email: string;
-    name?: string | null;
-    createdAt: Date;
     password: string;
-    photo?: string | null;
-    updatedAt: Date;
+    name?: string | null;
+    photo?: string | null; 
+
 }
+
+
+
+

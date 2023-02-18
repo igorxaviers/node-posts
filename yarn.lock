@@ -1878,6 +1878,11 @@ expect@^29.0.0, expect@^29.4.3:
     jest-message-util "^29.4.3"
     jest-util "^29.4.3"
 
+express-async-errors@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/express-async-errors/-/express-async-errors-3.1.1.tgz#6053236d61d21ddef4892d6bd1d736889fc9da41"
+  integrity sha512-h6aK1da4tpqWSbyCa3FxB/V6Ehd4EEB15zyQq9qe75OZBp0krinNKuH4rAY+S/U/2I36vdLAUFSjQJ+TFmODng==
+
 express@^4.18.2:
   version "4.18.2"
   resolved "https://registry.npmjs.org/express/-/express-4.18.2.tgz"
@@ -4067,3 +4072,13 @@ yocto-queue@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-1.0.0.tgz#7f816433fb2cbc511ec8bf7d263c3b58a1a3c251"
   integrity sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==
+
+zod-validation-error@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/zod-validation-error/-/zod-validation-error-0.3.1.tgz#c31e5d72ff1e5a682c7eec9901148aefc6981b6d"
+  integrity sha512-3m7VcE4YT3ZdGJoYBZnLt8E1S/r8zPFNDWMc2njaeC7Vxe5FQbgIiwHoerSkli5PgsUyxWQhpFxEAJXkBJvoDg==
+
+zod@^3.20.6:
+  version "3.20.6"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.20.6.tgz#2f2f08ff81291d47d99e86140fedb4e0db08361a"
+  integrity sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA==

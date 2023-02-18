@@ -18,8 +18,6 @@ model User {
   name      String?
   photo     String?
   // posts     Post[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
 
 // encrypt password before saving to db
